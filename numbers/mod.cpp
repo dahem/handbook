@@ -1,10 +1,23 @@
-bool isPrime(int n)
-{   
-    if (n <= 1)  return false;
-    if (n <= 3)  return true;
-    if (n%2 == 0 || n%3 == 0) return false;
-    for (int i=5; i*i<=n; i=i+6)
-        if (n%i == 0 || n%(i+2) == 0)
-            return false;
-    return true;
+#define MOD 1000000007
+int add(int a, int b)
+{
+	if (a + b >= MOD)
+	{
+		return a + b - MOD;
+	}
+	return a + b;
+}
+
+int sub(int a, int b)
+{
+	if (a - b < 0)
+	{
+		return a - b + MOD;
+	}
+	return a - b;
+}
+
+int mul(int a, int b)
+{
+	return 1ll * a * b % MOD;
 }
