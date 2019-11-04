@@ -1,21 +1,6 @@
-n = float(input())
 
+a, b = map(int, input().split())
 
-if (n < 0 or n > 100):
-    print("Fora de intervalo")
-    exit()
+p = [4.0, 4.5, 5.0, 2.0, 1.5]
 
-if (n >= 0 and n <= 25):
-    print("Intervalo [0,25]")
-    exit()
-
-if (n > 25 and n <= 50):
-    print("Intervalo (25,50]")
-    exit()
-if (n > 50 and n <= 75):
-    print("Intervalo (50,75]")
-    exit()
-
-if (n > 75 and n <= 100):
-    print("Intervalo (75,100]")
-    exit()
+print("Total: R$ %0.2f" % (p[a-1]*b))
