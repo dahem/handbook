@@ -27,48 +27,24 @@
   cerr << '\n';
 #define FASTIO std::ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
 const int INF = 0x3f3f3f3f;
-const int N = 10010;
+const int N = 70;
 using namespace std;
-int cases,n, item, m;
-ll sets[N];
-int countSetBits(ll n) 
-{ 
-    int count = 0; 
-    while (n) { 
-        count += n & 1ll; 
-        n >>= 1ll; 
-    } 
-    return count; 
-} 
+int n;
+int mat[N][N];
 int main()
 {
-  FASTIO;
-
-  cin>>cases;
-  f(cas, cases) {
-    cin>>n;
-    f(i,n) {
-      cin>>m;
-      ll num = 0ll;
-      f(j,m) {
-        cin>> item; 
-        num |= 1 << (item - 1);
-      }
-      sets[i] = num;
+    FASTIO;
+      
+    while(cin>>n) {
+        f(i, n) f(j, n) mat[i][j] = 3;
+        f(i, n) mat[i][i] = 1;  
+        f(i, n) mat[i][n-1-i] = 2; 
+        f(i, n) {
+            f(j, n) {
+                cout<<mat[i][j];
+            }
+            cout<<endl;
+        }
     }
-    int q;
-    int op;
-    int a,b;
-    cin>>q;
-    f(i,q) {
-      cin>>op>>a>>b;
-      ll res;
-      if (op == 1){
-        res = sets[a-1] & sets[b-1]; 
-      } else {
-        res = sets[a-1] | sets[b-1];
-      }
-      cout<<countSetBits(res)<<endl;
-    }
-  }
+    return 0;
 }
