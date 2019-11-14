@@ -1,10 +1,4 @@
---*
---*
---*
-caw caw
-*--
-*--
-caw caw
---*
-*--
-caw caw
+informatica
+2
+ciencia da computacao
+olimpiada brasileira de informatica
