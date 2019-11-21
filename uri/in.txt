@@ -1,4 +1,7 @@
-3
-2 3 5
-4
-1 2 2 6
+6
+sol sol
+chuva sol
+chuva sol
+chuva chuva
+sol chuva
+sol sol
