@@ -1,7 +1,1 @@
-6
-sol sol
-chuva sol
-chuva sol
-chuva chuva
-sol chuva
-sol sol
+791 123.141568 | aaa
