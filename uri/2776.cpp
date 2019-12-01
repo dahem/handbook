@@ -33,8 +33,48 @@ const int INF = 0x3f3f3f3f;
 const int N = 2010;
 using namespace std;
 
+int n, m;
+int a, b;
+int dp[N];
+vector<pii> v;
+
+int run(int val) {
+    if (val == 0) return 0;
+    if (val < 0) return -oo; 
+    if (dp[val] != -1) return dp[val];
+
+    int maxi = -oo;
+    int ind = -1;
+    f(i, n) {
+        int nexVal = v[i].S + run(val - v[i].F);
+        if(maxi < nexVal) {
+            maxi = nexVal; 
+            ind = i;
+        }
+    }
+
+    // if(ind > -1) {
+    //     cout<<v[ind].F<<" "<<v[ind].S<<endl;
+    // } else {
+    //     cout<<"negative"<<endl;
+    // }
+    return dp[val] = maxi;
+}
+
 int main()
 {
     FASTIO;
+    int ind = 0;
+    while(cin>>n>>m) {
+        ind++;
+        memset(dp, -1, sizeof(dp));
+        v.clear();
+        f(i,n) {
+            cin >> a >> b;
+            v.PB(MP(a,b));
+        } 
+        cout<<run(m)<<endl;
+
+    }
     return 0;
 }
