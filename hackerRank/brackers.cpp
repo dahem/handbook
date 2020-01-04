@@ -23,7 +23,6 @@
 #define pii pair<int, int>
 #define pil pair<int, long long>
 #define sz(v) (int)v.size()
-#define clear(arr, val) memset(arr, val, sizeof arr)
 #define watch(x) cerr << (#x) << "= " << (x) << endl;
 #define watcharr(a)                        \
     cerr << (#a) << "(" << sz(a) << ")= "; \
@@ -34,8 +33,40 @@ const int INF = 0x3f3f3f3f;
 const int N = 2010;
 using namespace std;
 
+string isBalanced(string s) {
+    stack<char> brackers_stack;
+    map<char, char> brackers_map;
+    brackers_map[']'] = '[';
+    brackers_map[')'] = '(';
+    brackers_map['}'] = '{';
+    for(int i = 0; i < s.length(); i++) {
+        if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+            brackers_stack.push(s[i]);
+        }
+        else {
+            if (brackers_stack.empty()) return "NO";
+            int top = brackers_stack.top();
+            if (brackers_map[s[i]] == top) {
+                brackers_stack.pop();
+            }
+            else {
+                return "NO";
+            }
+        }
+    }
+    if (brackers_stack.size() > 0) return "NO";
+    return "YES";
+}
+
 int main()
 {
     FASTIO;
+    int n;
+    cin>>n;
+    f(i,n) {
+        string s;
+        cin>>s;
+        cout<<isBalanced(s)<<endl;
+    }
     return 0;
 }
