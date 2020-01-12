@@ -7,6 +7,10 @@ dp = [[0 for y in range(m)] for x in range(n)]
 # list(set(t)) remove duplicate
 
 
+def cmp(a, b):
+    return (a > b) - (a < b)
+
+
 def run():
     raise Exception()
 
